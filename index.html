@@ -123,7 +123,7 @@
       transition: opacity 0.4s ease 1.6s;
     }
 
-    /* --- THE LETTER CONTAINER --- */
+    /* --- DUAL LETTER CONTAINER --- */
     .letter-container {
       position: absolute;
       top: 10px;
@@ -146,22 +146,23 @@
                   z-index 0.1s 1.2s;
     }
 
-    /* Tab Switcher */
+    /* Tab Navigation Bar */
     .tab-navigation {
       display: flex;
       background: #e0d2b4;
       border-bottom: 2px solid var(--gold);
-      opacity: 0;
-      transition: opacity 0.3s ease 0s;
+      width: 100%;
+      z-index: 20;
+      flex-shrink: 0;
     }
 
     .tab-btn {
       flex: 1;
-      padding: 10px 5px;
+      padding: 12px 5px;
       background: transparent;
       border: none;
       font-family: 'Georgia', serif;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: bold;
       color: var(--ink-color);
       cursor: pointer;
@@ -182,13 +183,10 @@
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
       display: none;
-      opacity: 0;
-      transition: opacity 0.4s ease;
     }
 
     .letter-content.active {
       display: block;
-      opacity: 1;
     }
 
     .letter-header {
@@ -251,7 +249,7 @@
     }
 
     #open-toggle:checked + .scene .letter-container {
-      z-index: 10;
+      z-index: 100;
       transform: translateY(-160px);
       transition: transform 0.8s ease-in-out 0.5s, 
                   width 0.8s ease-in-out 1.2s, 
@@ -268,21 +266,16 @@
       transition: opacity 0.8s ease 1.2s, transform 0.8s ease 1.2s;
     }
 
-    /* Final Position & Size on Screen */
+    /* Final Position & Size on Mobile Screen */
     #open-toggle:checked + .scene .letter-container {
       top: 50%;
       left: 50%;
-      width: 88vw;
+      width: 90vw;
       max-width: 440px;
-      height: 80vh;
-      height: 80dvh;
+      height: 82vh;
+      height: 82dvh;
       transform: translate(-50%, -50%);
       box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-    }
-
-    #open-toggle:checked + .scene .tab-navigation {
-      opacity: 1;
-      transition: opacity 0.6s ease 1.8s;
     }
 
     @media (max-width: 360px) {
@@ -330,7 +323,7 @@
       <!-- Tab Navigation -->
       <nav class="tab-navigation">
         <button class="tab-btn active" onclick="switchTab('hogwarts')">📜 Hogwarts Letter</button>
-        <button class="tab-btn" onclick="switchTab('personal')">✉️ Open It If U Want</button>
+        <button class="tab-btn" onclick="switchTab('personal')">✉️ Personal Note</button>
       </nav>
 
       <!-- LETTER 1: Official Hogwarts Notice -->
@@ -358,21 +351,17 @@
         </div>
 
         <div class="letter-body">
-          <p><strong>Dear Ms Clivia,</strong></p>
-            <p>We are pleased to inform you that your application for <strong>Another Extraordinary Year of Life</strong> has been officially approved!</p>
-
-            <p>Please note that term begins immediately. Please find enclosed your mandatory supply list for the 21st year:</p>
-
-            <ul style="padding-left: 20px; margin: 12px 0;">
+          <p><strong>Dear [Name],</strong></p>
+          <p>We are pleased to inform you that your application for <strong>Another Extraordinary Year of Life</strong> has been officially approved!</p>
+          <p>Please note that term begins immediately. Please find enclosed your mandatory supply list for the 21st year:</p>
+          <ul style="padding-left: 20px; margin: 12px 0;">
             <li>1 Cauldron overflowing with good health & unstoppable energy</li>
             <li>1 Pair of Dragonhide boots (for running away from adult responsibilities)</li>
             <li>Unlimited supply of laughter, good food, and zero-hangover Butterbeer</li>
             <li>1 Wand capable of turning stressful days into absolute magic</li>
-            </ul>
-
-            <p>Please be reminded that <em>The Use of Unforgivable Curses against annoying people</em> remains strictly prohibited. However, excessive smiling and celebrating is thoroughly encouraged.</p>
-
-            <p>May your day be as legendary as catching the Golden Snitch in the final second of a Quidditch match!</p>
+          </ul>
+          <p>Please be reminded that <em>The Use of Unforgivable Curses against annoying people</em> remains strictly prohibited. However, excessive smiling and celebrating is thoroughly encouraged.</p>
+          <p>May your day be as legendary as catching the Golden Snitch in the final second of a Quidditch match!</p>
           <br>
           <p style="text-align: right; margin-top: 10px;">
             <em>Yours sincerely,</em><br><br>
@@ -385,34 +374,33 @@
       </div>
 
       <!-- LETTER 2: Personal Note -->
-        <div id="tab-personal" class="letter-content">
+      <div id="tab-personal" class="letter-content">
         <div class="letter-header">
-            <div class="hogwarts-crest" style="font-family: 'Georgia', serif; font-style: italic; text-transform: none; font-size: 16px;">
-            Thanks For Opening It Lol
-            </div>
+          <div class="hogwarts-crest" style="font-family: 'Georgia', serif; font-style: italic; text-transform: none; font-size: 16px;">
+            Thanks for opening it lol
+          </div>
         </div>
 
         <div class="letter-body">
-            <p style="font-size: 15px;"><strong>Happy Birthdayyy!!! 🎉✨</strong></p>
-            <p>I hope you have the most wonderful 21st birthday experience! May every single wish and dream you hold close to your heart come true this age.</p>
-            <p>I just wanted to remind you that you deserve all the love, kindness, and warmth that comes your way. Whatever challenges or problems come your way, I know you will make it through.</p>
-            <p>May you always be deeply blessed by God, surrounded by family, and lifted up by true friends. Keep smiling always, because honestly, you have one of the most beautiful smiles 😊</p>
-            <p>Wishing you a long, healthy, and happy life ahead, getting prettier day by day, and filled with laughter and surrounded by your family, friends, and everyone who loves you.</p>
-            <br>
-            <p style="text-align: right; margin-top: 15px;">
+          <p style="font-size: 15px;"><strong>Happy Birthdayyy!!! 🎉✨</strong></p>
+          <p>I hope you have the most wonderful 21st birthday experience! May every single wish and dream you hold close to your heart come true this age.</p>
+          <p>I just wanted to remind you that you deserve all the love, kindness, and warmth that comes your way. Whatever challenges or problems come your way, I know you will make it through.</p>
+          <p>May you always be deeply blessed by God, surrounded by family, and lifted up by true friends. Keep smiling always, because honestly, you have one of the most beautiful smiles 😊</p>
+          <p>Wishing you a long, healthy, and happy life ahead, getting prettier day by day, and filled with laughter and surrounded by your family, friends, and everyone who loves you.</p>
+          <br>
+          <p style="text-align: right; margin-top: 15px;">
             <em>Cheers,</em><br><br>
             <strong>Link Sender</strong>
-            </p>
+          </p>
         </div>
 
         <label for="open-toggle" class="close-hint">✦ Tap here to put letter back in envelope ✦</label>
-        </div>
+      </div>
 
     </div>
   </div>
 
   <script>
-    // Tab switching function
     function switchTab(tabName) {
       const tabs = document.querySelectorAll('.letter-content');
       const buttons = document.querySelectorAll('.tab-btn');
